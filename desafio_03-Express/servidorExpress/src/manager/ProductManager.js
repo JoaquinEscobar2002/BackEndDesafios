@@ -1,6 +1,6 @@
-const fs = require('fs')
+import fs from 'fs'
 
-class ProductManager {
+export default class ProductManager {
 
     constructor(path) {
         this.path = path;
@@ -40,7 +40,7 @@ class ProductManager {
     }
 
     getProductById = async (id) => {
-        
+
 
         try {
             //Obtener TODOS los productos
@@ -55,12 +55,12 @@ class ProductManager {
             } else{
                 return "Not found, el id no fue encontrado"
             }
-            
+
         } catch (error) {
             console.log(error);
         }
-    
-        
+
+
     }
 
     //Añadir producto
@@ -123,10 +123,4 @@ class ProductManager {
     }
 
 
-}
-
-
-
-module.exports = {
-    ProductManager
 }
