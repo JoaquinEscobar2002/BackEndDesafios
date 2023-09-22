@@ -1,6 +1,6 @@
-const fs = require('fs')
+import fs from 'fs'
 
-class ProductManager {
+export default class ProductManager {
 
     constructor(path) {
         this.path = path;
@@ -123,10 +123,4 @@ class ProductManager {
     }
 
 
-}
-
-
-
-module.exports = {
-    ProductManager
 }
