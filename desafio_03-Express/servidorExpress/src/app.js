@@ -8,9 +8,20 @@ const manager = new ProductManager('./src/files/productos.json');
 const app = express();
 
 
-//Traer todos los productos
+
+//Traer todos los productos con query de limit
 app.get('/products', async (req,res) => {
-    res.send(await manager.getProducts())
+
+
+    let products = await manager.getProducts()
+    const queryParamsLimit = parseInt(req.query.limit);
+
+    if(queryParamsLimit){
+        let result = products.slice(0, queryParamsLimit)
+        res.send(result)
+    }else{
+        res.send(productss)
+    }
 })
 
 //Traer por id
