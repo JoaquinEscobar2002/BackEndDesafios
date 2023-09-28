@@ -20,7 +20,7 @@ app.get('/products', async (req,res) => {
         let result = products.slice(0, queryParamsLimit)
         res.send(result)
     }else{
-        res.send(productss)
+        res.send(products)
     }
 })
 
