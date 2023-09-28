@@ -1,0 +1,142 @@
+[
+	{
+		"id": 1,
+		"code": "product-1",
+		"title": "Plancha",
+		"description": "La Plancha",
+		"price": 400,
+		"thumbnail": "img",
+		"stock": 10,
+		"isDelete": "false"
+	},
+	{
+		"id": 2,
+		"code": "product-2",
+		"title": "Plancha",
+		"description": "La Plancha",
+		"price": 400,
+		"thumbnail": "img",
+		"stock": 10,
+		"isDelete": "true"
+	},
+	{
+		"id": 3,
+		"code": "product-3",
+		"title": "Plancha",
+		"description": "La Plancha",
+		"price": 400,
+		"thumbnail": "img",
+		"stock": 10,
+		"isDelete": "false"
+	},
+	{
+		"id": 4,
+		"code": "product-4",
+		"title": "caja",
+		"description": "La caja",
+		"price": 2000,
+		"thumbnail": "img",
+		"stock": 50,
+		"isDelete": "false"
+	},
+	{
+		"id": 5,
+		"code": "product-5",
+		"title": "Plancha",
+		"description": "La Plancha",
+		"price": 400,
+		"thumbnail": "img",
+		"stock": 10,
+		"isDelete": "false"
+	},
+	{
+		"id": 6,
+		"code": "product-6",
+		"title": "Plancha",
+		"description": "La Plancha",
+		"price": 400,
+		"thumbnail": "img",
+		"stock": 10,
+		"isDelete": "false"
+	},
+	{
+		"id": 7,
+		"code": "product-7",
+		"title": "Plancha",
+		"description": "La Plancha",
+		"price": 400,
+		"thumbnail": "img",
+		"stock": 10,
+		"isDelete": "false"
+	},
+	{
+		"id": 8,
+		"code": "product-8",
+		"title": "Plancha",
+		"description": "La Plancha",
+		"price": 400,
+		"thumbnail": "img",
+		"stock": 10,
+		"isDelete": "false"
+	},
+	{
+		"id": 9,
+		"code": "product-9",
+		"title": "Plancha",
+		"description": "La Plancha",
+		"price": 400,
+		"thumbnail": "img",
+		"stock": 10,
+		"isDelete": "true"
+	},
+	{
+		"id": 10,
+		"code": "product-10",
+		"title": "Acordeon",
+		"description": "Es un acordeon",
+		"price": 10000,
+		"thumbnail": "img",
+		"stock": 53,
+		"isDelete": "true"
+	},
+	{
+		"id": 11,
+		"code": "product-11",
+		"title": "Plancha",
+		"description": "La Plancha",
+		"price": 400,
+		"thumbnail": "img",
+		"stock": 10,
+		"isDelete": false
+	},
+	{
+		"id": 12,
+		"code": "product-12",
+		"title": "Plancha",
+		"description": "La Plancha",
+		"price": 400,
+		"thumbnail": "img",
+		"stock": 10,
+		"isDelete": false
+	},
+	{
+		"id": 13,
+		"code": "product-13",
+		"title": "Plancha",
+		"description": "La Plancha",
+		"price": 400,
+		"thumbnail": "img",
+		"stock": 10,
+		"isDelete": false
+	},
+	{
+		"id": 14,
+		"code": "product-14",
+		"title": "Acordeon",
+		"description": "Es un acordeon",
+		"price": 10000,
+		"thumbnail": "img",
+		"stock": 53,
+		"isDelete": false
+	}
+]
