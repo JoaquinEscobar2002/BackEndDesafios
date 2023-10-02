@@ -92,6 +92,7 @@ export default class ProductManager {
         }
     }
 
+    //Actualizar producto
     updateProduct = async (id, updateData) => {
 
         const products = await this.getProductsTotal()
