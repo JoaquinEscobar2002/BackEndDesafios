@@ -87,26 +87,19 @@ export default class CartManager {
     }     
     
     //Actualizar producto
-    updateCart = async (id, updateData) => {
+    updateCartProduct = async (idCart, product) => {
 
         const carts = await this.getCartsTotal()
-        const cart = await this.getCartById(id)
-        if(!cart){
-            return console.log("el carro no existe")
-        } else{
-            if(!updateData.id){
+        const cart = await this.getCartById(idCart)
 
-                const update = {...cart.products, ...updateData}
+        const update = {idp : product.id, qty : 1}
 
-                carts[cart.id - 1].products = update;
+        cart.products.push(update);
 
-                await fs.promises.writeFile(this.path, JSON.stringify(carts, null, '\t'));
+        carts[cart.id - 1] = cart
 
-            } else {
-                console.log("id no es un campo actualizable")
-            }
-
-        }
+        await fs.promises.writeFile(this.path, JSON.stringify(carts, null, '\t'));
+        
         
     }
 

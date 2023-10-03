@@ -1,5 +1,6 @@
 import {Router} from 'express';
 import CartManager from '../manager/CartManager.js';
+import ProductManager from '../manager/ProductManager.js';
 
 const manager = new CartManager('../src/files/carts.json');
 const managerProduct = new ProductManager('../src/files/productos.json');
@@ -19,27 +20,26 @@ router.get('/:cid', async (req, res) => {
 })
 
 router.post('/:cid/products/:pid', async (req, res) => {
+
     const cart = await manager.getCartById(req.params.cid)
     const product = await managerProduct.getProductById(req.params.pid)
+    if(cart.id != req.params.cid){
+        res.send({status:'not success', payload:"el carro no existe con este id" })
+    } else {
+        if(!product.id){
+            res.send({status:'not success', payload:"el producto no existe" })            
+        } else {
+            
+            await manager.updateCartProduct(req.params.cid,product)
 
+            const cart = await manager.getCartById(req.params.cid)
+
+            res.send({status:'success', payload: cart})
+        }
+    }
+    
+    
     
 })
-
-/* const env = async () => {
-    const products = await manager.getCartsTotal()
-    console.log(products)
-
-    const p = []
-
-    await manager.addCart(p)
-
-    const products2 = await manager.getCartsTotal()
-    console.log(products2)
-
-    const cartid = await manager.getCartById(15)
-    console.log(cartid)
-} 
-
-env()*/
 
 export default router;
