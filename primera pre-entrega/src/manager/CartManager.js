@@ -92,13 +92,28 @@ export default class CartManager {
         const carts = await this.getCartsTotal()
         const cart = await this.getCartById(idCart)
 
-        const update = {idp : product.id, qty : 1}
+        const productIndex = cart.products.findIndex((p) => p.idp === product.id)
+        if(productIndex === -1){
+            const update = {idp : product.id, qty : 1}
 
-        cart.products.push(update);
+            cart.products.push(update);
 
-        carts[cart.id - 1] = cart
+            carts[cart.id - 1] = cart     
+            
+            await fs.promises.writeFile(this.path, JSON.stringify(carts, null, '\t'));
 
-        await fs.promises.writeFile(this.path, JSON.stringify(carts, null, '\t'));
+        } else {
+
+            cart.products[productIndex].qty++
+
+            carts[cart.id - 1] = cart
+
+            await fs.promises.writeFile(this.path, JSON.stringify(carts, null, '\t'));
+        }
+        
+
+
+        
         
         
     }
