@@ -15,8 +15,8 @@ const router = Router();
 //Agregar producto
 router.post('/', async (req, res) => {
     try {
-        //const cart = req.body; //Obtener el json con los datos del carrito
-        await manager.addCart(/* cart */);
+        const cart = req.body; //Obtener el json con los datos del carrito
+        await manager.addCart(cart);
         res.send({status:'success', payload: cart });
     } catch (error) {
         res.status(400).send({ error: error.message })
