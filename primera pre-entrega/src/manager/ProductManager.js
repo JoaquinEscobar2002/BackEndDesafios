@@ -40,38 +40,30 @@ export default class ProductManager {
     }
 
     getProductById = async (id) => {
-        
-
         try {
             //Obtener TODOS los productos
             const products = await this.getProducts()
             //Buscamos segun id
-
             const productoId = products.find((p) => p.id === parseInt(id))
-
-
             if(productoId){
                 return productoId
             } else{
                 return "Not found, el id no fue encontrado"
             }
-            
         } catch (error) {
             console.log(error);
-        }
-    
-        
+        } 
     }
 
     //Añadir producto
-    addProduct = async (title, description, price, thumbnail, stock, code, id, isDelete = false ) =>{
+    addProduct = async (title, description, price, thumbnail, stock, category, code, id, status = true, isDelete = "false" ) =>{
         try {
             const producto = {
-                id, code, title, description, price, thumbnail, stock, isDelete
+                id, code, title, description, price, thumbnail, stock, category, status, isDelete
             }
             //Obtener TODOS los productos
             const products = await this.getProductsTotal()
-            if(!title || !description || !price ||  !thumbnail || (!stock && !stock === 0)){
+            if(!title || !description || !price ||  !thumbnail || !category || (!stock && !stock === 0)){
                 return console.log("Faltan campos");
             } else{
                 if(products.length === 0) {
@@ -95,37 +87,43 @@ export default class ProductManager {
     //Actualizar producto
     updateProduct = async (id, updateData) => {
 
-        const products = await this.getProductsTotal()
-        const product = await this.getProductById(id)
-        if(!product){
-            return console.log("el producto no existe")
-        } else{
-            if(!updateData.id){
+        try {
+            const products = await this.getProductsTotal()
+            const product = await this.getProductById(id)
+            if(!product){
+                return console.log("el producto no existe")
+            } else{
+                if(!updateData.id){
 
-                const update = {...product, ...updateData}
+                    const update = {...product, ...updateData}
 
-                products[product.id - 1] = update;
+                    products[product.id - 1] = update;
 
-                await fs.promises.writeFile(this.path, JSON.stringify(products, null, '\t'));
+                    await fs.promises.writeFile(this.path, JSON.stringify(products, null, '\t'));
 
-            } else {
-                console.log("id no es un campo actualizable")
+                } else {
+                    console.log("id no es un campo actualizable")
+                }
             }
-
+        } catch (error) {
+            res.status(400).send({ error: error.message })
         }
-        
     }
 
 
     deleteProduct = async (id) => {
-
-        await this.updateProduct(id, {isDelete: "true"})
-
+        try {
+            await this.updateProduct(id, {isDelete: "true"})
+        } catch (error) {
+            res.status(400).send({ error: error.message })
+        }
     }
+
     unDeleteProduct = async (id) => {
-
-        await this.updateProduct(id, {isDelete: "false"})
-
+        try {
+            await this.updateProduct(id, {isDelete: "false"})
+        } catch (error) {
+            res.status(400).send({ error: error.message })
+        }
     }
-
 }

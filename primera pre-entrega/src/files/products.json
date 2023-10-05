@@ -1,0 +1,122 @@
+[
+	{
+		"id": 1,
+		"code": "product-1",
+		"title": "moto",
+		"description": "Es una moto",
+		"price": 5000,
+		"thumbnail": "img",
+		"stock": 12,
+		"category": "veiculo",
+		"status": true,
+		"isDelete": "false"
+	},
+	{
+		"id": 2,
+		"code": "product-2",
+		"title": "auto",
+		"description": "Es un tesla",
+		"price": 50000,
+		"thumbnail": "img",
+		"stock": 10,
+		"category": "veiculo",
+		"status": true,
+		"isDelete": "false"
+	},
+	{
+		"id": 3,
+		"code": "product-3",
+		"title": "bici",
+		"description": "Es una bici",
+		"price": 1000,
+		"thumbnail": "img",
+		"stock": 100,
+		"category": "veiculo",
+		"status": true,
+		"isDelete": "false"
+	},
+	{
+		"id": 4,
+		"code": "product-4",
+		"title": "guitarra",
+		"description": "Es una guitarra",
+		"price": 1000,
+		"thumbnail": "img",
+		"stock": 100,
+		"category": "instrumento",
+		"status": true,
+		"isDelete": "false"
+	},
+	{
+		"id": 5,
+		"code": "product-5",
+		"title": "acordeon",
+		"description": "Es un acordeon",
+		"price": 15000,
+		"thumbnail": "img",
+		"stock": 7,
+		"category": "instrumento",
+		"status": true,
+		"isDelete": "false"
+	},
+	{
+		"id": 6,
+		"code": "product-6",
+		"title": "trompeta",
+		"description": "Es una trompeta",
+		"price": 7800,
+		"thumbnail": "img",
+		"stock": 16,
+		"category": "instrumento",
+		"status": true,
+		"isDelete": "false"
+	},
+	{
+		"id": 7,
+		"code": "product-7",
+		"title": "cafe",
+		"description": "cafe de marca",
+		"price": 500,
+		"thumbnail": "img",
+		"stock": 190,
+		"category": "alimento",
+		"status": true,
+		"isDelete": "false"
+	},
+	{
+		"id": 8,
+		"code": "product-8",
+		"title": "aceite",
+		"description": "aceite de marca",
+		"price": 700,
+		"thumbnail": "img",
+		"stock": 40,
+		"category": "alimento",
+		"status": true,
+		"isDelete": "false"
+	},
+	{
+		"id": 9,
+		"code": "product-9",
+		"title": "fideo",
+		"description": "fideo de marca",
+		"price": 150,
+		"thumbnail": "img",
+		"stock": 80,
+		"category": "alimento",
+		"status": true,
+		"isDelete": "false"
+	},
+	{
+		"id": 10,
+		"code": "product-10",
+		"title": "arroz",
+		"description": "arroz de marca",
+		"price": 200,
+		"thumbnail": "img",
+		"stock": 200,
+		"category": "alimento",
+		"status": true,
+		"isDelete": "false"
+	}
+]

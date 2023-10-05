@@ -60,7 +60,7 @@ export default class CartManager {
 
 
     //Añadir carrito
-    addCart = async (products, id, isDelete = "false" ) =>{
+    addCart = async (products = [], id, isDelete = "false" ) =>{
         try {
             const carrito = {
                 id, products, isDelete
