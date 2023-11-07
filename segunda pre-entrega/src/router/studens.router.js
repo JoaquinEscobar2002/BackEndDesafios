@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import Students from '../dao/dbManager/studens.manager.js';
+import Students from '../dao/dbManager/students.manager.js';
 
 const router = Router();
 const studensManager = new Students();
@@ -30,7 +30,7 @@ router.post('/', async (req, res) => {
             gender
         });
 
-        res.send({ Status: 'success', payload: result});
+        res.status(201).send({ Status: 'success', payload: result});
     } catch (error) {
         res.status(500).send({ status: 'error', message: error.message})
     }

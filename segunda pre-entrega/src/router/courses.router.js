@@ -27,7 +27,7 @@ router.post('/', async (req, res) => {
             teacher
         });
 
-        res.send({ Status: 'success', payload: result});
+        res.status(201).send({ Status: 'success', payload: result});
     } catch (error) {
         res.status(500).send({ status: 'error', message: error.message})
     }
