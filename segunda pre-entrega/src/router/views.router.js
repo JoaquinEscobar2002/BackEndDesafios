@@ -1,7 +1,6 @@
 import express from 'express';
 import { Router } from 'express';
-import Students from '../dao/dbManager/students.manager.js';
-import Courses from '../dao/dbManager/courses.manager.js';
+
 
 
 /* import {ProductsModel} from '../dao/dbManager/models/products.model.js'; */
@@ -9,26 +8,6 @@ import Courses from '../dao/dbManager/courses.manager.js';
 
 const router = Router();
 
-const studentsManager = new Students();
-const coursesManager = new Courses();
-
-router.get('/students-view', async (req, res) => {
-    try {
-        const students = await studentsManager.getAll();
-        res.render('students', {students});
-    } catch (error) {
-        console.log(error.message);
-    }
-});
-
-router.get('/courses-view', async (req, res) => {
-    try {
-        const courses = await coursesManager.getAll();
-        res.render('courses', {courses});
-    } catch (error) {
-        console.log(error.message);  
-    }
-});
 
 /* //Ruta para mostrar los productos con paginación
 router.get('/products', async (req, res) => {
