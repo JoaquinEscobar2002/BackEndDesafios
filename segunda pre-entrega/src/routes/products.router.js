@@ -1,10 +1,12 @@
 import { Router } from "express";
-import Products from '../dao/dbManager/products.managers.js';
-import { ProductsModel } from '../dao/dbManager/models/products.models.js'; 
+import Products from '../dao/dbManagers/products.managers.js';
+import { ProductsModel } from '../dao/dbManagers/models/products.models.js';
 
 const router = Router();
 const productManager = new Products();
 
+
+//GET
 router.get('/', async (req, res) => {
     let { limit = 10, page = 1, sort, query } = req.query;
     limit = parseInt(limit);
@@ -39,6 +41,8 @@ router.get('/', async (req, res) => {
     }
 });
 
+
+//GET by id
 router.get('/:pid', async (req, res) => {
     try {
         const id = req.params.pid;
@@ -50,6 +54,8 @@ router.get('/:pid', async (req, res) => {
     }
 });
 
+
+//POST (Agregar producto)
 router.post('/', async (req, res) => {
     try {
         const product = req.body;
@@ -62,6 +68,7 @@ router.post('/', async (req, res) => {
 
 });
 
+//PUT (actualizar producto)
 router.put('/:pid', async (req, res) => {
     try {
 
@@ -71,11 +78,11 @@ router.put('/:pid', async (req, res) => {
             return res.status(400).send({ status: 'error', message: 'incomplete values' });
         }
 
-        const product = { title, description, price, thumbnail, code, stock, status, category };
+        const update = { title, description, price, thumbnail, code, stock, status, category };
 
         const id = req.params.pid;
 
-        await productManager.updateProduct(id, product);
+        await productManager.updateProduct(id, update);
 
         res.send({ status: 'success', payload: product });
     }
@@ -83,5 +90,6 @@ router.put('/:pid', async (req, res) => {
         res.status(400).send({ error: error.message });
     }
 });
+
 
 export default router;

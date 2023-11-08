@@ -1,8 +1,8 @@
-import { CartsModel } from './models/carts.models.js';
+import { CartsModel } from './models/carts.models.js'; 
 
 export default class Carts {
     constructor() {
-        console.log('Carts database operations are ready.');
+        console.log('Carts DB');
     }
 
     //Traer carros
@@ -11,7 +11,7 @@ export default class Carts {
         return result;
     }
 
-    //Agregar al carro
+    //Agregar carro
     async addCart() {
         const result = await CartsModel.create({});
         return result;
@@ -33,11 +33,10 @@ export default class Carts {
 
     //Encuentra el carrito y actualízalo con el nuevo arreglo de productos
     async updateCartWithProducts(cartId, update) {
-        //
         const updatedCart = await CartsModel.findByIdAndUpdate(
             cartId,
             { $set: { products: update } },
-            //{ new: true, runValidators: true }
+            { new: true, runValidators: true }
         );
 
         return updatedCart;
@@ -48,13 +47,9 @@ export default class Carts {
         // Esta operación encuentra un carrito por ID y actualiza sus productos.
         const updatedCart = await CartsModel.findOneAndUpdate(
             { _id: id },
-            { $set: { products: update } },
-            //{ new: true, runValidators: true }
+            { $set: { products: products } },
+            { new: true, runValidators: true }
         );
-
-        /* if (!updatedCart) {
-            throw new Error("The cart was not found or no update was made.");
-        } */
 
         return updatedCart;
     }
@@ -63,7 +58,7 @@ export default class Carts {
     async deleteCart(id) {
         const cart = await CartsModel.findById(id);
         if (!cart) {
-            throw new Error("The cart you are trying to delete does not exist.");
+            throw new Error("El carro no existe");
         }
         const result = await CartsModel.deleteOne({ _id: id });
         return result;

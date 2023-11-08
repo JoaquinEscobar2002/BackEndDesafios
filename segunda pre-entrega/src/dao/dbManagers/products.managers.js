@@ -2,7 +2,7 @@ import { ProductsModel } from './models/products.models.js';
 
 export default class Products {
     constructor() {
-        console.log('Products database operations are ready.');
+        console.log('Products DB');
     }
 
     //Traer productos
@@ -25,7 +25,7 @@ export default class Products {
 
     //Actualizar producto
     async updateProduct(id, update) {
-        const result = await ProductsModel.updateOne({ _id: id }, update);
+        const result = await ProductsModel.updateOne({ _id: id }, update, { new: true });
         return result;
     }
 
